@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.rafaelaznar.dao.CompraDao_Mysql;
+import net.rafaelaznar.dao.CompraDao;
 import net.rafaelaznar.helper.Conexion;
 
 /**
@@ -23,7 +23,7 @@ public class CompraGetcolumns implements GenericOperation {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ArrayList<String> alColumns = null;
         try {
-            CompraDao_Mysql oCompraDAO = new CompraDao_Mysql(Conexion.getConection());
+            CompraDao oCompraDAO = new CompraDao(Conexion.getConection());
             alColumns = oCompraDAO.getColumnsNames();
             String data = new Gson().toJson(alColumns);
             data = "{\"data\":" + data + "}";

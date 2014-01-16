@@ -4,12 +4,12 @@
     Author     : rafa
 --%>
 <%@page import="net.rafaelaznar.helper.Conexion"%>
-<%@page import="net.rafaelaznar.dao.CompraDao_Mysql"%>
+<%@page import="net.rafaelaznar.dao.CompraDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%
-    CompraDao_Mysql oCompraDao_Mysql = new CompraDao_Mysql(Conexion.getConection());
-    ArrayList<String> alColumnsNames = (ArrayList<String>) oCompraDao_Mysql.getColumnsNames();
+    CompraDao oCompraDao = new CompraDao(Conexion.getConection());
+    ArrayList<String> alColumnsNames = (ArrayList<String>) oCompraDao.getColumnsNames();
     Iterator<String> oIterador = alColumnsNames.listIterator();
     String strNombreMantenimiento = "compra";
 %>

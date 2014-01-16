@@ -9,7 +9,7 @@ import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.rafaelaznar.dao.CompraDao_Mysql;
+import net.rafaelaznar.dao.CompraDao;
 import net.rafaelaznar.helper.Conexion;
 import net.rafaelaznar.helper.FilterBean;
 
@@ -65,7 +65,7 @@ public class CompraGetpages implements GenericOperation {
             } else {
                 hmOrder = null;
             }
-            CompraDao_Mysql oCompraDAO = new CompraDao_Mysql(Conexion.getConection());
+            CompraDao oCompraDAO = new CompraDao(Conexion.getConection());
             int pages = oCompraDAO.getPages(rpp, alFilter, hmOrder);
             data = "{\"data\":\"" + Integer.toString(pages) + "\"}";
             return data;

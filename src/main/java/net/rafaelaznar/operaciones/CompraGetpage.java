@@ -12,7 +12,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.rafaelaznar.dao.CompraDao_Mysql;
+import net.rafaelaznar.dao.CompraDao;
 import net.rafaelaznar.helper.Conexion;
 import net.rafaelaznar.bean.CompraBean;
 import net.rafaelaznar.helper.FilterBean;
@@ -79,7 +79,7 @@ public class CompraGetpage implements GenericOperation {
             } else {
                 hmOrder = null;
             }
-            CompraDao_Mysql oCompraDAO = new CompraDao_Mysql(Conexion.getConection());
+            CompraDao oCompraDAO = new CompraDao(Conexion.getConection());
             List<CompraBean> oCompras = oCompraDAO.getPage(rpp, page, alFilter, hmOrder);
 
             GsonBuilder gsonBuilder = new GsonBuilder();

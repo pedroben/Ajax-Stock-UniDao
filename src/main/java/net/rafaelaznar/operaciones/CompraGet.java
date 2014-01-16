@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.rafaelaznar.bean.CompraBean;
-import net.rafaelaznar.dao.CompraDao_Mysql;
+import net.rafaelaznar.dao.CompraDao;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.rafaelaznar.helper.Conexion;
@@ -28,7 +28,7 @@ public class CompraGet implements GenericOperation {
             if (request.getParameter("id") == null) {
                 data = "{\"error\":\"id is mandatory\"}";
             } else {
-                CompraDao_Mysql oCompraDAO = new CompraDao_Mysql(Conexion.getConection());
+                CompraDao oCompraDAO = new CompraDao(Conexion.getConection());
                 CompraBean oCompra = new CompraBean();
                 oCompra.setId(Integer.parseInt(request.getParameter("id")));
                 oCompraDAO.get(oCompra);                                

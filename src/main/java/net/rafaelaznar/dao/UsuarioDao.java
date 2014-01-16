@@ -5,12 +5,12 @@
 package net.rafaelaznar.dao;
 
 import net.rafaelaznar.bean.UsuarioBean;
+import net.rafaelaznar.helper.Conexion;
 
 /**
  *
  * @author rafa
  */
-
 public interface UsuarioDao extends GenericDao<UsuarioBean> {
-    
+
 }

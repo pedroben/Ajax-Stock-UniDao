@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.rafaelaznar.dao.CompraDao_Mysql;
+import net.rafaelaznar.dao.CompraDao;
 import net.rafaelaznar.helper.Conexion;
 import net.rafaelaznar.helper.EncodingUtil;
 import net.rafaelaznar.bean.CompraBean;
@@ -26,7 +26,7 @@ public class CompraSave implements GenericOperation {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         try {
-            CompraDao_Mysql oCompraDAO = new CompraDao_Mysql(Conexion.getConection());
+            CompraDao oCompraDAO = new CompraDao(Conexion.getConection());
             CompraBean oCompra = new CompraBean();            
             Gson gson=  new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
             String jason = request.getParameter("json");
